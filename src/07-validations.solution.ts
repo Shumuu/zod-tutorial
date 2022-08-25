@@ -5,9 +5,9 @@ import { z } from "zod";
 
 const Form = z.object({
   name: z.string().min(1),
-  phoneNumber: z.string().min(5).max(20).optional(),
+  phoneNumber: z.optional(z.string().min(5).max(20)),
   email: z.string().email(),
-  website: z.string().url().optional(),
+  website: z.optional(z.string().url()),
 });
 
 export const validateFormInput = (values: unknown) => {
